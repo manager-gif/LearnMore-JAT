@@ -338,7 +338,7 @@ function initSessionUi() {
         getSupabaseUserProfile(nextSession.user.id).then((profile) => {
           const isAdmin = profile?.role === "admin" || nextSession.user.email?.includes("admin");
           updateSessionUi(true, isAdmin);
-        });
+        }).catch(() => updateSessionUi(true, false));
       } else {
         updateSessionUi(false, false);
       }

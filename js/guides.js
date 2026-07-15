@@ -1,10 +1,10 @@
-// js/guides.js — solo importar supabase, nada más
+// js/guides.js íƒÆ’í‚Â¢íƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÂ¢í¢â€šÂ¬í‚Â solo importar supabase, nada míƒÆ’í†â€™íƒâ€ší‚Â¡s
 import { supabase } from './supabase.js';
 
-// También necesitas esta variable que uses en el código pero no está definida localmente:
+// TambiíƒÆ’í†â€™íƒâ€ší‚Â©n necesitas esta variable que uses en el cíƒÆ’í†â€™íƒâ€ší‚Â³digo pero no estíƒÆ’í†â€™íƒâ€ší‚Â¡ definida localmente:
 const supabaseReady = !!supabase;
-// Si Supabase no está listo, usaremos localStorage como respaldo
-// (Manteniendo la misma lógica que antes para el modo local)
+// Si Supabase no estíƒÆ’í†â€™íƒâ€ší‚Â¡ listo, usaremos localStorage como respaldo
+// (Manteniendo la misma líƒÆ’í†â€™íƒâ€ší‚Â³gica que antes para el modo local)
 
 const KEYS = {
   guides: "learnmore.guides",
@@ -20,15 +20,15 @@ export const defaultCareers = [
   {
     id: "mecatronica",
     key: "01",
-    name: "Mecatrónica",
-    desc: "Carrera de Mecatrónica",
+    name: "MecatríƒÆ’í†â€™íƒâ€ší‚Â³nica",
+    desc: "Carrera de MecatríƒÆ’í†â€™íƒâ€ší‚Â³nica",
     color: "#00d4ff"
   },
   {
     id: "ti",
     key: "02",
-    name: "TI e Innovación Digital",
-    desc: "Carrera de Tecnologías de la Información e Innovación Digital",
+    name: "TI e InnovaciíƒÆ’í†â€™íƒâ€ší‚Â³n Digital",
+    desc: "Carrera de TecnologíƒÆ’í†â€™íƒâ€ší‚Â­as de la InformaciíƒÆ’í†â€™íƒâ€ší‚Â³n e InnovaciíƒÆ’í†â€™íƒâ€ší‚Â³n Digital",
     color: "#7c3aed"
   },
   {
@@ -42,7 +42,7 @@ export const defaultCareers = [
 
 export const defaultGuides = [];
 
-// Funciones para modo local (idénticas a las originales)
+// Funciones para modo local (idíƒÆ’í†â€™íƒâ€ší‚Â©nticas a las originales)
 function readLocal(key, fallback) {
   const value = localStorage.getItem(key);
   if (!value) return fallback;
@@ -82,7 +82,7 @@ async function subscribeSupabaseTable(tableName, fallback, callback) {
     return localSubscribe(KEYS[tableName], fallback, callback);
   }
 
-  // ── FIX: tablas opcionales que pueden no existir aún ──────────────────────
+  // íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬ FIX: tablas opcionales que pueden no existir aíƒÆ’í†â€™íƒâ€ší‚Âºn íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬
   const optionalTables = ["gmailMessages"];
   if (optionalTables.includes(tableName)) {
     // Intentar fetch; si falla con 404/42P01 simplemente usar fallback silencioso
@@ -92,7 +92,7 @@ async function subscribeSupabaseTable(tableName, fallback, callback) {
       .order('created_at', { ascending: false });
 
     if (error) {
-      // Tabla no existe todavía — usar fallback sin spam de errores
+      // Tabla no existe todavíƒÆ’í†â€™íƒâ€ší‚Â­a íƒÆ’í‚Â¢íƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÂ¢í¢â€šÂ¬í‚Â usar fallback sin spam de errores
       callback(fallback);
       return () => {};
     }
@@ -109,7 +109,7 @@ async function subscribeSupabaseTable(tableName, fallback, callback) {
 
     return () => supabase.removeChannel(channel);
   }
-  // ──────────────────────────────────────────────────────────────────────────
+  // íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬
 
   // Primero, obtener los datos actuales
   const { data: initialData, error } = await supabase
@@ -125,7 +125,7 @@ async function subscribeSupabaseTable(tableName, fallback, callback) {
   // Si la tabla de carreras esta vacia, mantener las opciones base
   callback(initialData?.length ? initialData : fallback);
 
-  // Configurar suscripción en tiempo real
+  // Configurar suscripciíƒÆ’í†â€™íƒâ€ší‚Â³n en tiempo real
   const channel = supabase
     .channel(`public:${tableName}`)
     .on('postgres_changes', { event: '*', schema: 'public', table: tableName }, () => {
@@ -156,7 +156,7 @@ function localDelete(key, id) {
 }
 
 // ==========================================
-// FUNCIÓN DE NORMALIZACIÓN
+// FUNCIíƒÆ’í†â€™íƒÂ¢í¢â€šÂ¬í…â€œN DE NORMALIZACIíƒÆ’í†â€™íƒÂ¢í¢â€šÂ¬í…â€œN
 // ==========================================
 export function normalizeTopics(value) {
   if (Array.isArray(value)) return value;
@@ -168,17 +168,17 @@ export function normalizeTopics(value) {
 // ==========================================
 
 export function collection(tableName) {
-  if (!supabaseReady) throw new Error("Supabase no está listo");
+  if (!supabaseReady) throw new Error("Supabase no estíƒÆ’í†â€™íƒâ€ší‚Â¡ listo");
   return supabase.from(tableName);
 }
 
 export function doc(tableName, id) {
-  if (!supabaseReady) throw new Error("Supabase no está listo");
+  if (!supabaseReady) throw new Error("Supabase no estíƒÆ’í†â€™íƒâ€ší‚Â¡ listo");
   return supabase.from(tableName).eq('id', id);
 }
 
 export async function addDoc(tableReference, data) {
-  if (!supabaseReady) throw new Error("Supabase no está listo");
+  if (!supabaseReady) throw new Error("Supabase no estíƒÆ’í†â€™íƒâ€ší‚Â¡ listo");
   const { data: result, error } = await supabase
     .from(tableReference)
     .insert({
@@ -193,18 +193,18 @@ export async function addDoc(tableReference, data) {
 }
 
 export async function setDoc(docReference, data, options = {}) {
-  if (!supabaseReady) throw new Error("Supabase no está listo");
-  throw new Error("setDoc no implementado. Use funciones específicas (saveGuide, saveUser, etc.).");
+  if (!supabaseReady) throw new Error("Supabase no estíƒÆ’í†â€™íƒâ€ší‚Â¡ listo");
+  throw new Error("setDoc no implementado. Use funciones especíƒÆ’í†â€™íƒâ€ší‚Â­ficas (saveGuide, saveUser, etc.).");
 }
 
 export async function deleteDoc(docReference) {
-  if (!supabaseReady) throw new Error("Supabase no está listo");
-  throw new Error("deleteDoc no implementado. Use funciones específicas (deleteGuide, deleteUser, etc.).");
+  if (!supabaseReady) throw new Error("Supabase no estíƒÆ’í†â€™íƒâ€ší‚Â¡ listo");
+  throw new Error("deleteDoc no implementado. Use funciones especíƒÆ’í†â€™íƒâ€ší‚Â­ficas (deleteGuide, deleteUser, etc.).");
 }
 
 export async function getDoc(docReference) {
-  if (!supabaseReady) throw new Error("Supabase no está listo");
-  throw new Error("getDoc no implementado. Use funciones específicas.");
+  if (!supabaseReady) throw new Error("Supabase no estíƒÆ’í†â€™íƒâ€ší‚Â¡ listo");
+  throw new Error("getDoc no implementado. Use funciones especíƒÆ’í†â€™íƒâ€ší‚Â­ficas.");
 }
 
 export function onSnapshot(tableReference, callback) {
@@ -219,14 +219,14 @@ export function serverTimestamp() {
 }
 
 export function ref(storageInstance, path) {
-  if (!supabaseReady) throw new Error("Supabase no está listo");
+  if (!supabaseReady) throw new Error("Supabase no estíƒÆ’í†â€™íƒâ€ší‚Â¡ listo");
 
   return {
     path
   };
 }
 export async function uploadBytes(fileRef, file) {
-  if (!supabaseReady) throw new Error("Supabase no está listo");
+  if (!supabaseReady) throw new Error("Supabase no estíƒÆ’í†â€™íƒâ€ší‚Â¡ listo");
 
   const bucket = "guides"; // <-- cambia esto si tu bucket tiene otro nombre
 
@@ -245,7 +245,7 @@ export async function uploadBytes(fileRef, file) {
 }
 
 export async function getDownloadURL(fileRef) {
-  if (!supabaseReady) throw new Error("Supabase no está listo");
+  if (!supabaseReady) throw new Error("Supabase no estíƒÆ’í†â€™íƒâ€ší‚Â¡ listo");
 
   const bucket = "guides"; // <-- mismo nombre del bucket
 
@@ -256,7 +256,7 @@ export async function getDownloadURL(fileRef) {
   return data.publicUrl;
 }
 // ==========================================
-// FUNCIONES ESPECÍFICAS PARA CADA COLECCIÓN
+// FUNCIONES ESPECíƒÆ’í†â€™íƒâ€ší‚ÂFICAS PARA CADA COLECCIíƒÆ’í†â€™íƒÂ¢í¢â€šÂ¬í…â€œN
 // ==========================================
 
 export const subscribeGuides        = (callback) => subscribeSupabaseTable("guides",        defaultGuides,  callback);
@@ -267,7 +267,7 @@ export const subscribeUsers         = (callback) => subscribeSupabaseTable("user
 export const subscribeActivity      = (callback) => subscribeSupabaseTable("activity",      [],             callback);
 export const subscribeReviews       = (callback) => subscribeSupabaseTable("reviews",       [],             callback);
 
-// Funciones de guardado específicas
+// Funciones de guardado especíƒÆ’í†â€™íƒâ€ší‚Â­ficas
 export async function saveGuide(data) {
   const payload = {
     ...data,
@@ -316,7 +316,7 @@ if (payload.file && payload.file instanceof File) {
       if (error) throw error;
     }
 
-    await saveActivity({ type: "guide", text: `Guia guardada: ${payload.title || "(Sin título)"}` });
+    await saveActivity({ type: "guide", text: `Guia guardada: ${payload.title || "(Sin tíƒÆ’í†â€™íƒâ€ší‚Â­tulo)"}` });
     return id || Date.now();
   } catch (error) {
     console.error("Error saving guide:", error);
@@ -453,7 +453,7 @@ export async function saveUser(data) {
   // El id puede venir del objeto o usamos el email como identificador
   const id = payload.id || payload.email;
 
-  // ── FIX: si el id no es un UUID válido (ej. admin@learnmore.local), guardar solo local ──
+  // íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬ FIX: si el id no es un UUID víƒÆ’í†â€™íƒâ€ší‚Â¡lido (ej. admin@learnmore.local), guardar solo local íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬
   const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
 
   if (!supabaseReady || !isUUID) {
@@ -466,15 +466,15 @@ export async function saveUser(data) {
     return result;
   }
 
-  // ── FIX: limpiar campos que no van a la BD ────────────────────────────────
+  // íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬ FIX: limpiar campos que no van a la BD íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬
   delete payload.password;
   delete payload.photoFile;
 
   const timestamp = new Date().toISOString();
 
-  // Construir objeto limpio con id explícito
+  // Construir objeto limpio con id explíƒÆ’í†â€™íƒâ€ší‚Â­cito
   const dataToSave = {
-    id,                          // ← id siempre presente para el upsert
+    id,                          // íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚Â íƒâ€ší‚Â id siempre presente para el upsert
     ...payload,
     updated_at: timestamp,
     created_at: timestamp,       // Supabase lo ignora si la fila ya existe
@@ -485,7 +485,7 @@ export async function saveUser(data) {
   dataToSave.id = id;            // y lo ponemos una sola vez al final
 
   try {
-    // ── FIX: upsert con onConflict explícito en la columna id ────────────────
+    // íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬ FIX: upsert con onConflict explíƒÆ’í†â€™íƒâ€ší‚Â­cito en la columna id íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬íƒÆ’í‚Â¢íƒÂ¢í¢â€šÂ¬í‚ÂíƒÂ¢í¢â‚¬Å¡í‚Â¬
     const { error } = await supabase
       .from("users")
       .upsert(dataToSave, { onConflict: "id", ignoreDuplicates: false });
@@ -627,8 +627,8 @@ export function getCareerCodeFromName(careerName) {
   if (normalized === "02") return "02";
   if (normalized === "03") return "03";
 
-  if (normalized.includes("mecatronica") || normalized.includes("mecatrónica")) return "01";
-  else if (normalized.includes("ti") || normalized.includes("innovacion") || normalized.includes("innovación") || normalized.includes("digital")) return "02";
+  if (normalized.includes("mecatronica") || normalized.includes("mecatríƒÆ’í†â€™íƒâ€ší‚Â³nica")) return "01";
+  else if (normalized.includes("ti") || normalized.includes("innovacion") || normalized.includes("innovaciíƒÆ’í†â€™íƒâ€ší‚Â³n") || normalized.includes("digital")) return "02";
   else if (normalized.includes("procesos") || normalized.includes("industriales")) return "03";
   else return "01";
 }
@@ -738,9 +738,9 @@ export async function generateMatricula(careerName) {
 // VIEW COUNTER - CONTADOR DE VISTAS
 // ==========================================
 
-// Función para incrementar el contador de vistas de una guía en Supabase
-// Parámetro: guideId - ID único de la guía a la que se le suma una vista
-// Esta función actualiza la base de datos directamente para persistencia
+// FunciíƒÆ’í†â€™íƒâ€ší‚Â³n para incrementar el contador de vistas de una guíƒÆ’í†â€™íƒâ€ší‚Â­a en Supabase
+// ParíƒÆ’í†â€™íƒâ€ší‚Â¡metro: guideId - ID íƒÆ’í†â€™íƒâ€ší‚Âºnico de la guíƒÆ’í†â€™íƒâ€ší‚Â­a a la que se le suma una vista
+// Esta funciíƒÆ’í†â€™íƒâ€ší‚Â³n actualiza la base de datos directamente para persistencia
 // CRITICAL: Returns a Promise and updates both Supabase AND localStorage as fallback
 export async function incrementGuideViews(guideId) {
   if (!supabaseReady) {
@@ -756,12 +756,12 @@ export async function incrementGuideViews(guideId) {
 
   try {
     // IMPORTANTE: Para evitar problemas con bigint y condiciones de carrera en tiempo real,
-    // usamos la función rpc() de Supabase para incrementar directamente en la base de datos de un solo golpe.
-    // Nota: Debes tener la función 'increment_views' creada en tu base de datos (abajo te dejo el SQL).
+    // usamos la funciíƒÆ’í†â€™íƒâ€ší‚Â³n rpc() de Supabase para incrementar directamente en la base de datos de un solo golpe.
+    // Nota: Debes tener la funciíƒÆ’í†â€™íƒâ€ší‚Â³n 'increment_views' creada en tu base de datos (abajo te dejo el SQL).
     const { error: rpcError } = await supabase
       .rpc('increment_views', { row_id: guideId });
 
-    // Si por alguna razón la función RPC no está creada, usamos este plan de respaldo optimizado:
+    // Si por alguna razíƒÆ’í†â€™íƒâ€ší‚Â³n la funciíƒÆ’í†â€™íƒâ€ší‚Â³n RPC no estíƒÆ’í†â€™íƒâ€ší‚Â¡ creada, usamos este plan de respaldo optimizado:
     if (rpcError) {
       const { data: currentGuide, error: fetchError } = await supabase
         .from("guides")
@@ -785,9 +785,9 @@ export async function incrementGuideViews(guideId) {
   }
 }
 
-// Función para obtener guías ordenadas por vistas (más populares)
-// Parámetros: allGuides - array de todas las guías disponibles
-// Retorna: array de guías ordenadas de mayor a menor número de vistas (solo guías con > 0 vistas)
+// FunciíƒÆ’í†â€™íƒâ€ší‚Â³n para obtener guíƒÆ’í†â€™íƒâ€ší‚Â­as ordenadas por vistas (míƒÆ’í†â€™íƒâ€ší‚Â¡s populares)
+// ParíƒÆ’í†â€™íƒâ€ší‚Â¡metros: allGuides - array de todas las guíƒÆ’í†â€™íƒâ€ší‚Â­as disponibles
+// Retorna: array de guíƒÆ’í†â€™íƒâ€ší‚Â­as ordenadas de mayor a menor níƒÆ’í†â€™íƒâ€ší‚Âºmero de vistas (solo guíƒÆ’í†â€™íƒâ€ší‚Â­as con > 0 vistas)
 export function getMostViewedGuides(allGuides) {
   const sorted = [...allGuides].sort((a, b) => {
     const viewsA = a.views || 0;
@@ -799,3 +799,5 @@ export function getMostViewedGuides(allGuides) {
   });
   return sorted.slice(0, 6);
 }
+/* created by JAT */
+

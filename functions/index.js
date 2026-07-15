@@ -17,7 +17,7 @@ serve(async (req) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // AQUÍ DEBES PONER EL NOMBRE DE LA VARIABLE QUE CREASTE EN SUPABASE
+        // AQUíƒÆ’í‚Â DEBES PONER EL NOMBRE DE LA VARIABLE QUE CREASTE EN SUPABASE
         "Authorization": `Bearer ${Deno.env.get("RESEND_API_KEY")}`,
       },
       body: JSON.stringify({
@@ -26,7 +26,7 @@ serve(async (req) => {
         subject: subject || "Nuevo mensaje de contacto",
         html: `
           <h1>Has recibido un nuevo mensaje</h1>
-          <p><strong>Nombre:</strong> ${name || "Anónimo"}</p>
+          <p><strong>Nombre:</strong> ${name || "AníƒÆ’í‚Â³nimo"}</p>
           <p><strong>Correo:</strong> ${email}</p>
           <p><strong>Mensaje:</strong></p>
           <p>${message}</p>
@@ -47,3 +47,4 @@ serve(async (req) => {
     });
   }
 });
+/* created by JAT */

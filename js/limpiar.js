@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// Apunta directamente a la raÃ­z del proyecto para agarrar el index.html y los CSS
+// Apunta directamente a la raí­z del proyecto para agarrar el index.html y los CSS
 const projectRoot = path.resolve(__dirname, '..'); 
 
 function fixFile(filePath) {
